@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parameters>
+    <coffeeItem coffeeType = "GROUND" coffeeVariety="Arabica" price="220" quantityInStore="10000" />
+    <coffeeItem coffeeType="INSTANT_GRANULES" coffeeVariety="Robusta" price="120" quantityInStore="5000" />
+    <coffeeItem coffeeType="INSTANT_POWDER" coffeeVariety="Robusta" price="74" quantityInStore="7000" />
+    <coffeeItem coffeeType="BEANS" coffeeVariety="Arabica" price="300" quantityInStore="7000" />
+    <coffeeItem coffeeType="GROUND" coffeeVariety="Robusta" price="160" quantityInStore= "5000" />
+    <coffeeItem coffeeType="BEANS" coffeeVariety="Robusta" price="250" quantityInStore= "5000" />
+
+    <vanItem capacity="100" quantity="3" />
+    <vanItem capacity="200" quantity="2" />
+    <vanItem capacity="150" quantity="0" />
+
+
+</parameters>
