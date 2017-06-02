@@ -13,9 +13,8 @@ public class HomePage extends Page {
         super(webDriver);
         this.url = url;
   }
+    /** open home page */
     public void open() {
-        /** open home page */
-
         driver.get(url);
   }
 }

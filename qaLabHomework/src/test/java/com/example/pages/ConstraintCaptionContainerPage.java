@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.NoSuchElementException;
 
 
 /**
@@ -25,40 +28,42 @@ public class ConstraintCaptionContainerPage extends Page{
 
     public ConstraintCaptionContainerPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
+    /** check if Free Shipping filter is present
+     * in the Constraint Caption Container
+     * @return true if the filter is present
+     */
     public boolean isFreeShippingConstraintCaptionPresent() {
-        /** check if Free Shipping filter is present
-         * in the Constraint Caption Container
-         */
         if(driver.findElements(By.xpath(REMOVE_FREE_SHIPPING_FILTER_BTN_XPATH)).size() > 0)
             return true;
         else
             return false;
     }
 
+    /** check if US Only filter is present
+     * in the Constraint Caption Container
+     * @return true if the filter is present
+     */
     public boolean isUSOnlyConstraintCaptionPresent() {
-        /** check if US Only filter is present
-         * in the Constraint Caption Container
-         */
         if(driver.findElements(By.xpath(REMOVE_US_ONLY_FILTER_BTN_XPATH)).size() > 0)
             return true;
         else
             return false;
     }
 
+    /** click to remove US Only filter from
+     * Constraint Caption container
+     */
     public void clickRemoveUSOnlyFilterBtn() {
-        /** click to remove US Only filter from
-         * Constraint Caption container
-         */
         constraintContainerRemoveUSOnlyFilterBtn.click();
     }
 
+    /** click to remove Free Shipping filter from
+     * Constraint Caption container
+     */
     public void clickRemoveFreeShippingFilter() {
-
-        /** click to remove Free Shipping filter from
-         * Constraint Caption container
-         */
         constraintContainerRemoveFreeShippingFilterBtn.click();
     }
 }

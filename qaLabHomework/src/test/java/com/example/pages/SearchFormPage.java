@@ -28,8 +28,11 @@ public class SearchFormPage extends Page {
         PageFactory.initElements(driver, this);
     }
 
+    /** search for given request
+     * @param request
+     * @return new SerpPage object */
+
     public SerpPage searchFor (String request) {
-        /** search for given request */
         requestInput.clear();
         requestInput.sendKeys(request);
         searchButton.click();
