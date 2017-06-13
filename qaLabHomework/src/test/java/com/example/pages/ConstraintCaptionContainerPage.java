@@ -1,12 +1,12 @@
 package com.example.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.NoSuchElementException;
 
 
 /**
@@ -36,10 +36,13 @@ public class ConstraintCaptionContainerPage extends Page{
      * @return true if the filter is present
      */
     public boolean isFreeShippingConstraintCaptionPresent() {
-        if(driver.findElements(By.xpath(REMOVE_FREE_SHIPPING_FILTER_BTN_XPATH)).size() > 0)
+        try {
+            constraintContainerRemoveFreeShippingFilterBtn.getText();
             return true;
-        else
+        }
+        catch (NoSuchElementException e) {
             return false;
+        }
     }
 
     /** check if US Only filter is present
@@ -47,10 +50,17 @@ public class ConstraintCaptionContainerPage extends Page{
      * @return true if the filter is present
      */
     public boolean isUSOnlyConstraintCaptionPresent() {
-        if(driver.findElements(By.xpath(REMOVE_US_ONLY_FILTER_BTN_XPATH)).size() > 0)
+//        if(driver.findElements(By.xpath(REMOVE_US_ONLY_FILTER_BTN_XPATH)).size() > 0)
+//            return true;
+//        else
+//            return false;
+        try {
+            constraintContainerRemoveUSOnlyFilterBtn.getText();
             return true;
-        else
+        }
+        catch (NoSuchElementException e) {
             return false;
+        }
     }
 
     /** click to remove US Only filter from

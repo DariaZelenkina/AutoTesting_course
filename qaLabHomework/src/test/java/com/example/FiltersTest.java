@@ -77,8 +77,9 @@ public class FiltersTest extends TestNgTestBase {
         homePage.open();
         SerpPage serpPage = searchFormPage.searchFor(REQUEST).applyFreeShippingFilter()
                 .applyLocationUSOnlyFilter();
-        assertTrue(serpPage.isFreeShippingFieldPresent()
-                    && serpPage.isCountryUSOnly());
+        softAssert.assertTrue(serpPage.isFreeShippingFieldPresent());
+        softAssert.assertTrue(serpPage.isCountryUSOnly());
+        softAssert.assertAll();
     }
 
     /** apply Free Shipping filter,

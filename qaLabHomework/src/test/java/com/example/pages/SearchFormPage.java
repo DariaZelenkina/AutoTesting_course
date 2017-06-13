@@ -15,7 +15,6 @@ public class SearchFormPage extends Page {
     private static final String SEARCH_BUTTON_XPATH = ".//*[@id='gh-btn']";
 
     @FindBy(xpath = REQUEST_INPUT_XPATH)
-    @CacheLookup
     private WebElement requestInput;
 
     @FindBy(xpath = SEARCH_BUTTON_XPATH)

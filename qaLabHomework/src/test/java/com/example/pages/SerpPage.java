@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
-import java.util.NoSuchElementException;
+import org.openqa.selenium.NoSuchElementException;
 
 /**
  * Created by daria on 24.05.17.
@@ -35,7 +35,6 @@ public class SerpPage extends Page {
     private List<WebElement> freeShippingFields;
 
     FilterSerpFormPage filterSerpForm = new FilterSerpFormPage(driver);
-    ConstraintCaptionContainerPage constraintCaptionContainer = new ConstraintCaptionContainerPage(driver);
 
 
     public SerpPage(WebDriver driver) {
@@ -119,7 +118,12 @@ public class SerpPage extends Page {
      * @return true if the caption is present
      */
     public boolean isFreeShippingCaptionPresent() {
-        return constraintCaptionContainer.isFreeShippingConstraintCaptionPresent();
+        try {
+            return new ConstraintCaptionContainerPage(driver).isFreeShippingConstraintCaptionPresent();
+        }
+        catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
     /** check if US Only constraint caption is
@@ -127,7 +131,12 @@ public class SerpPage extends Page {
      * @return true if the caption is present
      */
     public boolean isUSOnlyCaptionPresent() {
-        return constraintCaptionContainer.isUSOnlyConstraintCaptionPresent();
+        try {
+            return new ConstraintCaptionContainerPage(driver).isUSOnlyConstraintCaptionPresent();
+        }
+        catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
     /** remove US Only filter from
@@ -135,6 +144,7 @@ public class SerpPage extends Page {
      * @return new SerpPage object
      */
     public SerpPage removeUSOnlyFilterFromConstraintContainer() {
+        ConstraintCaptionContainerPage constraintCaptionContainer = new ConstraintCaptionContainerPage(driver);
         constraintCaptionContainer.clickRemoveUSOnlyFilterBtn();
         return new SerpPage(driver);
     }
@@ -144,6 +154,7 @@ public class SerpPage extends Page {
      * @return new SerpPage object
      */
     public SerpPage removeFreeShippingFilterFromConstraintContainer() {
+        ConstraintCaptionContainerPage constraintCaptionContainer = new ConstraintCaptionContainerPage(driver);
         constraintCaptionContainer.clickRemoveFreeShippingFilter();
         return new SerpPage(driver);
     }
